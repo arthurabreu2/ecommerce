@@ -140,7 +140,7 @@ E-commerce
   function clearCart() {
       cart = JSON.parse(localStorage.getItem('cart'));
       for (var item in cart) {
-          document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-danger cart">AddtoCard <i class="fa-solid fa-cart-shopping"></i></button>'
+          document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-danger cart">Adicionar ao carrinho <i class="fa-solid fa-cart-shopping"></i></button>'
       }
       localStorage.clear();
       cart = {};

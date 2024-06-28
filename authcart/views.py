@@ -23,14 +23,14 @@ def signup(request):
         try:
             if User.objects.get(username=email):
                 # return HttpResponse("email already exist")
-                messages.info(request,"Email is Taken")
+                messages.info(request,"Email ja exite")
                 return render(request,'signup.html')
         except Exception as identifier:
             pass
         user = User.objects.create_user(email,email,password)
         user.is_active=False
         user.save()
-        email_subject="Activate Your Account"
+
         message=render_to_string('activate.html',{
             'user':user,
             'domain':'127.0.0.1:8000',
@@ -41,7 +41,7 @@ def signup(request):
 
         # email_message = EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[email])
         # email_message.send()
-        messages.success(request,f"Activate Your Account by clicking the link in your gmail {message}")
+        messages.success(request,f"Ative sua conta clicando aqui {message}")
         return redirect('/auth/login/')
     return render(request,"signup.html")
 
@@ -56,7 +56,7 @@ class ActivateAccountView(View):
         if user is not None and generate_token.check_token(user,token):
             user.is_active=True
             user.save()
-            messages.info(request,"Account Activated Successfully")
+            messages.info(request,"Conta ativada com sucesso!")
             return redirect('/auth/login')
         return render(request,'activatefail.html')
 
@@ -73,7 +73,7 @@ def handlelogin(request):
             return redirect('/')
 
         else:
-            messages.error(request,"Invalid Credentials")
+            messages.error(request,"Credenciais Invalidas")
             return redirect('/auth/login')
 
     return render(request,'login.html')  
@@ -109,7 +109,7 @@ class RequestResetEmailView(View):
             # email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[email])
             # email_message.send()
 
-            messages.info(request,f"WE HAVE SENT YOU AN EMAIL WITH INSTRUCTIONS ON HOW TO RESET THE PASSWORD {message} " )
+            messages.info(request,f"Enviamos um email para alteração de senha {message} " )
             return render(request,'request-reset-email.html')
 
 class SetNewPasswordView(View):

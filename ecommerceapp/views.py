@@ -137,11 +137,11 @@ def profile(request):
         myid=i.oid
         rid=myid.replace("ShopyCart","")
         print(rid)
-    status=OrderUpdate.objects.filter(order_id=int(rid))
-    for j in status:
-        print(j.update_desc)
+    # status=OrderUpdate.objects.filter(order_id=int(rid))
+    # for j in status:
+    #     print(j.update_desc)
 
    
-    context ={"items":items,"status":status}
+    context ={"items":items,}
     # print(currentuser)
     return render(request,"profile.html",context)

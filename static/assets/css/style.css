@@ -6,14 +6,14 @@ body {
 }
 
 a {
-  color: #ffffff;
+  color: #004d8b;
   text-decoration: none;
-  transition: all ease-in-out 0.3;
+  transition: all ease-in-out 0.3s;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 a:hover {
-  color: #afafaf;
+  color: #6a99d6;
   text-decoration: none;
 }
 
@@ -495,7 +495,7 @@ section {
 }
 
 .section-title h3 span {
-  color: #e43c5c;
+  color: #6a99d6;
 }
 
 .section-title p {
@@ -2013,7 +2013,7 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: #d01d3f;
+  background: #4d7ab6;
   color: #fff;
   text-decoration: none;
 }
